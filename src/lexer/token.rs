@@ -1,5 +1,4 @@
-mod lexer;
-
+#[derive(Debug)]
 pub enum TokenType {
     // Single char
     LParenthesis,
@@ -20,5 +19,5 @@ pub enum TokenType {
 }
 
 pub struct Token {
-    token_type: TokenType,
+    pub token_type: TokenType,
 }

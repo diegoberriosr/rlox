@@ -1,4 +1,7 @@
-mod lexer;
+pub mod token;
+
+use token::Token;
+use token::TokenType;
 
 pub fn generate_tokens(source_code: &str) -> Vec<Token> {
     let mut tokens: Vec<Token> = Vec::new();
