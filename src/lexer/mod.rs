@@ -64,3 +64,67 @@ pub fn generate_tokens(source_code: &str) -> Vec<Token> {
 fn is_at_end(current_index: usize, source_code: &str) -> bool {
     current_index >= source_code.len()
 }
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+
+    #[test]
+    fn test_generate_tokens_with_single_tokens() {
+        let expected_output: Vec<Token> = vec![
+            Token {
+                token_type: TokenType::LParenthesis,
+            },
+            Token {
+                token_type: TokenType::RParenthesis,
+            },
+            Token {
+                token_type: TokenType::LCurlyBrace,
+            },
+            Token {
+                token_type: TokenType::RCurlyBrace,
+            },
+            Token {
+                token_type: TokenType::Comma,
+            },
+            Token {
+                token_type: TokenType::Dot,
+            },
+            Token {
+                token_type: TokenType::Semicomma,
+            },
+            Token {
+                token_type: TokenType::Plus,
+            },
+            Token {
+                token_type: TokenType::Minus,
+            },
+            Token {
+                token_type: TokenType::Asterisk,
+            },
+            Token {
+                token_type: TokenType::Slash,
+            },
+            Token {
+                token_type: TokenType::Equals,
+            },
+            Token {
+                token_type: TokenType::Not,
+            },
+        ];
+
+        assert_eq!(expected_output, generate_tokens("(){},.;+-*/=!"));
+    }
+
+    #[test]
+    fn test_generate_toens_with_not_supported_tokens() {
+        let expected_output: Vec<Token> = vec![
+            Token {
+                token_type: TokenType::Unknown,
+            };
+            3
+        ];
+
+        assert_eq!(expected_output, generate_tokens("~~^"));
+    }
+}

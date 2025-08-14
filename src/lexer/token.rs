@@ -1,4 +1,4 @@
-#[derive(Debug)]
+#[derive(Debug, PartialEq, Eq, Clone)]
 pub enum TokenType {
     // Single char
     LParenthesis,
@@ -18,6 +18,7 @@ pub enum TokenType {
     Unknown,
 }
 
+#[derive(Debug, PartialEq, Eq, Clone)]
 pub struct Token {
     pub token_type: TokenType,
 }
