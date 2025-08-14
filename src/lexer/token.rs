@@ -13,8 +13,41 @@ pub enum TokenType {
     Asterisk,
     Slash,
     Equals,
-    Not,
+    Bang,
+    Greater,
+    Less,
 
+    // Multi character tokens
+    BangEqual,
+    EqualEqual,
+    GreaterEqual,
+    LessEqual,
+
+    // Literals
+    Identifier,
+    String,
+    Number,
+
+    // Keywords
+    And,
+    Class,
+    Else,
+    False,
+    Fun,
+    For,
+    If,
+    Nil,
+    Or,
+    Print,
+    Return,
+    Super,
+    This,
+    True,
+    Var,
+    While,
+
+    // Special tokens
+    Eof,
     Unknown,
 }
 
